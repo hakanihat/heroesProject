@@ -31,3 +31,7 @@ Combat, които се взимат от  Marvel API -
 
 
 3. service- служи като междинен клиент между другите два сървиса и всички външни апи-та, които ползвам
+
+
+https://github.com/hakanihat/heroesAPIProject
+https://github.com/hakanihat/heroesRealitonshipsProject
