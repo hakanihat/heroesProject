@@ -3,7 +3,7 @@ package com.tinqin.project.database.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -21,7 +21,7 @@ public class Movie {
 
     private String movieName;
 
-    private Date releaseDate;
+    private LocalDate releaseDate;
 
     @OneToMany(mappedBy = "movie")
     private Set<Movie> movies;

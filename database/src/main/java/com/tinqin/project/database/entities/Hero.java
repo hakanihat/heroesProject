@@ -26,8 +26,8 @@ public class Hero {
 
     private String alignment;
 
-    @ManyToOne
-    @JoinColumn(name = "idAttribute" )
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAttribute", referencedColumnName = "idAttribute")
     private HeroAttribute heroAttribute;
 
     @ManyToOne

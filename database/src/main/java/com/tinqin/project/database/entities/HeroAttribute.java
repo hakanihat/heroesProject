@@ -30,6 +30,6 @@ public class HeroAttribute {
 
     private Integer power;
 
-    @OneToMany(mappedBy = "heroAttribute")
-    private Set<Hero> heroes;
+    @OneToOne(mappedBy = "heroAttribute")
+    private Hero hero;
 }
