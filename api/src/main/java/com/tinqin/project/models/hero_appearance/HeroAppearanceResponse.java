@@ -10,9 +10,10 @@ import lombok.Setter;
 @Setter(AccessLevel.PRIVATE)
 @Getter
 public class HeroAppearanceResponse implements OperationResult {
-    private String heroRace;
-    private String height;
-    private String weight;
+    private String race;
     private String eyeColor;
     private String hairColor;
+    private String heightInCm;
+    private String WeightInKg;
+
 }

@@ -12,7 +12,9 @@ import com.tinqin.project.operation.HeroProcessor;
 import io.vavr.control.Either;
 import io.vavr.control.Try;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HeroProcessorCore implements HeroProcessor {
 
     private final ConversionService conversionService;
