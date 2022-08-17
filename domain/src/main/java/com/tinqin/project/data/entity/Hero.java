@@ -4,15 +4,14 @@ package com.tinqin.project.data.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name="Heroes")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Hero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,9 +33,11 @@ public class Hero {
     @JoinColumn(name = "idHeroTypes")
     private HeroType heroType;
 
-    @OneToMany(mappedBy = "moviesOfTheHero")
-    private Set<MoviesOfTheHero> moviesOfTheHeroes;
+    @OneToMany(mappedBy = "hero")
+    private Set<MoviesOfTheHero>  heroMovies= new HashSet<>();
 
+    public Hero() {
+    }
 
 
 }

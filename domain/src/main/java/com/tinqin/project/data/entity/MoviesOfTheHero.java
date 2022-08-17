@@ -4,14 +4,13 @@ package com.tinqin.project.data.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "MoviesOfTheHeroes")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
+
 public class MoviesOfTheHero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +23,8 @@ public class MoviesOfTheHero {
     @ManyToOne
     @JoinColumn(name="idMovie")
     private Movie movie;
+
+    public MoviesOfTheHero() {
+    }
+
 }

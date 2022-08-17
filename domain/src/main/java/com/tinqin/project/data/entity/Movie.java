@@ -4,15 +4,14 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "Movies")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Movie {
 
     @Id
@@ -24,5 +23,11 @@ public class Movie {
     private LocalDate releaseDate;
 
     @OneToMany(mappedBy = "movie")
-    private Set<Movie> movies;
+    private Set<MoviesOfTheHero> moviesOfTheHero = new HashSet<>();
+
+    public Movie() {
+    }
+
+
+
 }
