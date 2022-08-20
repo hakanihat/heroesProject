@@ -1,7 +1,6 @@
 package com.tinqin.project.processor;
 
-import com.tinqin.project.data.entity.Hero;
-import com.tinqin.project.data.repository.HeroRepository;
+
 import com.tinqin.project.error.general.GeneralServerError;
 import com.tinqin.project.error.hero.NoSuchHeroError;
 import com.tinqin.project.exception.hero.HeroNotFoundException;
@@ -14,8 +13,10 @@ import io.vavr.control.Try;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+/*
 @Service
-public class HeroProcessorCore implements HeroProcessor {
+*/
+/*public class HeroProcessorCore implements HeroProcessor {
 
     private final ConversionService conversionService;
     private final HeroRepository heroRepository;
@@ -41,4 +42,4 @@ public class HeroProcessorCore implements HeroProcessor {
 
 
     }
-}
+}*/
