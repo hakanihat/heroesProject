@@ -1,4 +1,4 @@
-package com.tinqin.project.models.hero_appearance.feign;
+package com.tinqin.project.models.hero_biography.feign;
 
 import com.tinqin.project.models.DBHeroRequest;
 import lombok.*;
@@ -8,6 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FeignHeroAppearanceRequest implements DBHeroRequest {
+public class FeignHeroBiographyRequest implements DBHeroRequest {
     private Long heroId;
 }
