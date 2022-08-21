@@ -12,14 +12,10 @@ import lombok.Setter;
 @Getter
 public class HeroResponse implements OperationResult {
 private String heroName;
-private String heroAge;
-private String heroGender;
-private String alignment;
-private String heroType;
-private Integer intelligence;
-private Integer strength;
-private Integer speed;
-private Integer durability;
-private Integer combat;
-private Integer power;
+private String intelligence;
+private String strength;
+private String speed;
+private String durability;
+private String combat;
+private String power;
 }

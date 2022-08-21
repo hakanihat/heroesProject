@@ -10,8 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan(basePackages = "com.tinqin.project")
 @EnableFeignClients(basePackages = "com.tinqin.project")
-@EnableJpaRepositories(basePackages = "com.tinqin.project.data.repository")
-@EntityScan("com.tinqin.project.data.entity")
+
 public class RestApplication {
 
     public static void main(String[] args) {

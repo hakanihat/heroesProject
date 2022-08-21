@@ -1,6 +1,8 @@
 package com.tinqin.project.rest;
 
 import com.tinqin.project.generics.Error;
+import com.tinqin.project.models.hero.HeroRequest;
+import com.tinqin.project.models.hero.HeroResponse;
 import com.tinqin.project.models.hero_appearance.HeroAppearanceRequest;
 import com.tinqin.project.models.hero_appearance.HeroAppearanceResponse;
 import com.tinqin.project.models.hero_biography.HeroBiographyRequest;
@@ -9,10 +11,7 @@ import com.tinqin.project.models.hero_fight.HeroFightRequest;
 import com.tinqin.project.models.hero_fight.HeroFightResponse;
 import com.tinqin.project.models.hero_movie.HeroMovieRequest;
 import com.tinqin.project.models.hero_movie.HeroMovieResponse;
-import com.tinqin.project.operation.HeroAppearanceProcessor;
-import com.tinqin.project.operation.HeroBiographyProcessor;
-import com.tinqin.project.operation.HeroFightProcessor;
-import com.tinqin.project.operation.HeroMovieProcessor;
+import com.tinqin.project.operation.*;
 import io.vavr.control.Either;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +28,14 @@ public class HeroController {
     private final HeroFightProcessor heroFightProcessor;
     private final HeroMovieProcessor heroMovieProcessor;
 
-    public HeroController(HeroAppearanceProcessor heroAppearanceProcessor, HeroBiographyProcessor heroBiographyProcessor, HeroFightProcessor heroFightProcessor, HeroMovieProcessor heroMovieProcessor) {
+    private final HeroProcessor heroProcessor;
+
+    public HeroController(HeroAppearanceProcessor heroAppearanceProcessor, HeroBiographyProcessor heroBiographyProcessor, HeroFightProcessor heroFightProcessor, HeroMovieProcessor heroMovieProcessor, HeroProcessor heroProcessor) {
         this.heroAppearanceProcessor = heroAppearanceProcessor;
         this.heroBiographyProcessor = heroBiographyProcessor;
         this.heroFightProcessor = heroFightProcessor;
         this.heroMovieProcessor = heroMovieProcessor;
+        this.heroProcessor = heroProcessor;
     }
 
     @PostMapping("/getAppearance")
@@ -70,6 +72,16 @@ public class HeroController {
     public ResponseEntity<?> getMovies(@RequestBody final HeroMovieRequest heroMovieRequest)
     {
         Either<Error, HeroMovieResponse> response = heroMovieProcessor.process(heroMovieRequest);
+        if(response.isLeft()){
+            return ResponseEntity.status(response.getLeft().getCode()).body(response.getLeft().getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response.get());
+    }
+
+    @PostMapping("/getHeroStats")
+    public ResponseEntity<?> getHeroStats(@RequestBody final HeroRequest heroRequest)
+    {
+        Either<Error, HeroResponse> response = heroProcessor.process(heroRequest);
         if(response.isLeft()){
             return ResponseEntity.status(response.getLeft().getCode()).body(response.getLeft().getMessage());
         }

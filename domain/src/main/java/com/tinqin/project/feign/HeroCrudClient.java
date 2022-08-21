@@ -1,6 +1,8 @@
 package com.tinqin.project.feign;
 
 
+import com.tinqin.project.models.hero.db.DBHeroRequest;
+import com.tinqin.project.models.hero.db.DBHeroResponse;
 import com.tinqin.project.models.hero_appearance.db.DBHeroAppearanceRequest;
 import com.tinqin.project.models.hero_appearance.db.DBHeroAppearanceResponse;
 import com.tinqin.project.models.hero_biography.db.DBHeroBiographyRequest;
@@ -19,6 +21,9 @@ import java.util.List;
 public interface HeroCrudClient {
     @PostMapping("/getHeroFromDB")
     DBHeroAppearanceResponse checkHero(@RequestBody DBHeroAppearanceRequest dbHeroAppearanceRequest);
+
+    @PostMapping("/getHeroFromDB")
+    DBHeroResponse findHero(@RequestBody DBHeroRequest dbHeroRequest);
 
     @PostMapping("/getHeroFromDB")
     DBHeroBiographyResponse checkHeroAndAlignment(@RequestBody DBHeroBiographyRequest dbHeroBiographyRequest);
