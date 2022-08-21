@@ -1,6 +1,5 @@
 package com.tinqin.project.models.hero_biography.feign;
 
-import com.tinqin.project.models.DBHeroRequest;
 import lombok.*;
 
 @Setter(AccessLevel.PRIVATE)
@@ -8,6 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FeignHeroBiographyRequest implements DBHeroRequest {
+public class FeignHeroBiographyRequest {
     private Long heroId;
 }

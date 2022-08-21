@@ -1,12 +1,13 @@
-package com.tinqin.project.models.hero_movie;
+package com.tinqin.project.models.hero_movie.db;
 
 import com.tinqin.project.generics.OperationInput;
 import lombok.*;
 
 @Setter(AccessLevel.PRIVATE)
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class HeroMovieRequest implements OperationInput {
+@NoArgsConstructor
+@Builder
+public class DBHeroMovieRequest implements OperationInput {
     private String heroId;
 }

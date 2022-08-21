@@ -7,9 +7,13 @@ import com.tinqin.project.models.hero_biography.db.DBHeroBiographyRequest;
 import com.tinqin.project.models.hero_biography.db.DBHeroBiographyResponse;
 import com.tinqin.project.models.hero_fight.db.DBHeroFightRequest;
 import com.tinqin.project.models.hero_fight.db.DBHeroFightResponse;
+import com.tinqin.project.models.hero_movie.db.DBHeroMovieRequest;
+import com.tinqin.project.models.hero_movie.db.DBHeroMovieResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @FeignClient(value="heroCrud", url = "http://localhost:8082/")
 public interface HeroCrudClient {
@@ -21,4 +25,7 @@ public interface HeroCrudClient {
 
     @PostMapping("/getFightResult")
     DBHeroFightResponse getFightResult(@RequestBody DBHeroFightRequest dbHeroFightRequest);
+
+    @PostMapping("/getHeroMovies")
+    List<DBHeroMovieResponse> getHeroMovies(@RequestBody DBHeroMovieRequest dbHeroMovieRequest);
 }

@@ -1,6 +1,5 @@
 package com.tinqin.project.models.hero_biography.db;
 
-import com.tinqin.project.models.DBHeroRequest;
 import lombok.*;
 
 @Setter(AccessLevel.PRIVATE)
@@ -8,6 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DBHeroBiographyRequest implements DBHeroRequest {
+public class DBHeroBiographyRequest {
     private Long heroId;
 }

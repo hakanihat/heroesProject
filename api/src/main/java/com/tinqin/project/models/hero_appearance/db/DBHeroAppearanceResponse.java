@@ -1,13 +1,12 @@
 package com.tinqin.project.models.hero_appearance.db;
 
-import com.tinqin.project.models.DBHeroResponse;
 import lombok.*;
 
 @Builder
 @Getter
 @Setter(AccessLevel.PRIVATE)
 
-public class DBHeroAppearanceResponse implements DBHeroResponse {
+public class DBHeroAppearanceResponse {
     private Long heroId;
 
     private String heroName;
