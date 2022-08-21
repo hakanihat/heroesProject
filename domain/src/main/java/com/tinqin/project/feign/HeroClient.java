@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(value="hero", url = "http://localhost:8081/")
 public interface HeroClient {
-    @PostMapping("/getHeroById")
+    @PostMapping("/getHeroAppearance")
     FeignHeroAppearanceResponse getHeroAppearance(@RequestBody FeignHeroAppearanceRequest feignHeroAppearanceRequest);
 
-    @PostMapping("/getHeroAndAlignment")
+    @PostMapping("/getHeroBiography")
     FeignHeroBiographyResponse getHeroBiography(@RequestBody FeignHeroBiographyRequest feignHeroBiographyRequest);
 
 

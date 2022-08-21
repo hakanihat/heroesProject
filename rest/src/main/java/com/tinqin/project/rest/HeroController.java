@@ -5,8 +5,11 @@ import com.tinqin.project.models.hero_appearance.HeroAppearanceRequest;
 import com.tinqin.project.models.hero_appearance.HeroAppearanceResponse;
 import com.tinqin.project.models.hero_biography.HeroBiographyRequest;
 import com.tinqin.project.models.hero_biography.HeroBiographyResponse;
+import com.tinqin.project.models.hero_fight.HeroFightRequest;
+import com.tinqin.project.models.hero_fight.HeroFightResponse;
 import com.tinqin.project.operation.HeroAppearanceProcessor;
 import com.tinqin.project.operation.HeroBiographyProcessor;
+import com.tinqin.project.operation.HeroFightProcessor;
 import io.vavr.control.Either;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +23,12 @@ public class HeroController {
     private final HeroAppearanceProcessor heroAppearanceProcessor;
     private final HeroBiographyProcessor heroBiographyProcessor;
 
-    public HeroController(HeroAppearanceProcessor heroAppearanceProcessor, HeroBiographyProcessor heroBiographyProcessor) {
+    private final HeroFightProcessor heroFightProcessor;
+
+    public HeroController(HeroAppearanceProcessor heroAppearanceProcessor, HeroBiographyProcessor heroBiographyProcessor, HeroFightProcessor heroFightProcessor) {
         this.heroAppearanceProcessor = heroAppearanceProcessor;
         this.heroBiographyProcessor = heroBiographyProcessor;
+        this.heroFightProcessor = heroFightProcessor;
     }
 
     @PostMapping("/getAppearance")
@@ -40,6 +46,16 @@ public class HeroController {
     {
         Either<Error, HeroBiographyResponse> response = heroBiographyProcessor.process(heroBiographyRequest);
         if (response.isLeft()){
+            return ResponseEntity.status(response.getLeft().getCode()).body(response.getLeft().getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(response.get());
+    }
+
+    @PostMapping("/getFightResult")
+    public ResponseEntity<?> getFightResult(@RequestBody final HeroFightRequest heroFightRequest)
+    {
+        Either<Error, HeroFightResponse> response = heroFightProcessor.process(heroFightRequest);
+        if(response.isLeft()){
             return ResponseEntity.status(response.getLeft().getCode()).body(response.getLeft().getMessage());
         }
         return ResponseEntity.status(HttpStatus.OK).body(response.get());

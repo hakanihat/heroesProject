@@ -35,7 +35,7 @@ public class HeroAppearanceProcessorCore implements HeroAppearanceProcessor {
     @Override
     public Either<Error, HeroAppearanceResponse> process(final HeroAppearanceRequest input) {
         return Try.of(()->{
-            final DBHeroAppearanceResponse dbHeroAppearanceResponse = heroCrudClient.checkHero(
+            final DBHeroAppearanceResponse dbHeroAppearanceResponse =  heroCrudClient.checkHero(
                     DBHeroAppearanceRequest.builder().heroId(input.getHeroId()).build());
             final FeignHeroAppearanceResponse appearanceResponse = heroClient.getHeroAppearance(
                     FeignHeroAppearanceRequest.builder().heroId(dbHeroAppearanceResponse.getHeroId()).build()

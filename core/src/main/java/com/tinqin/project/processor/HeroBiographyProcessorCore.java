@@ -5,8 +5,6 @@ import com.tinqin.project.error.hero.NoSuchHeroError;
 import com.tinqin.project.feign.HeroClient;
 import com.tinqin.project.feign.HeroCrudClient;
 import com.tinqin.project.generics.Error;
-import com.tinqin.project.models.hero_appearance.db.DBHeroAppearanceRequest;
-import com.tinqin.project.models.hero_appearance.feign.FeignHeroAppearanceRequest;
 import com.tinqin.project.models.hero_biography.HeroBiographyRequest;
 import com.tinqin.project.models.hero_biography.HeroBiographyResponse;
 import com.tinqin.project.models.hero_biography.db.DBHeroBiographyRequest;
@@ -33,8 +31,8 @@ public class HeroBiographyProcessorCore implements HeroBiographyProcessor {
     @Override
     public Either<Error, HeroBiographyResponse> process(final HeroBiographyRequest input) {
         return Try.of(()->{
-            final DBHeroBiographyResponse dbHeroBiographyResponse =heroCrudClient.checkHeroAndAlignment(
-                    DBHeroBiographyRequest.builder().heroId(input.getHeroId()).build());
+            final DBHeroBiographyResponse dbHeroBiographyResponse = heroCrudClient.checkHeroAndAlignment(
+                  DBHeroBiographyRequest.builder().heroId(input.getHeroId()).build());
             final FeignHeroBiographyResponse biographyResponse = heroClient.getHeroBiography(
                     FeignHeroBiographyRequest.builder().heroId(dbHeroBiographyResponse.getHeroId()).build()
             );
