@@ -17,5 +17,5 @@ private String strength;
 private String speed;
 private String durability;
 private String combat;
-private String power;
+private String power;//ll
 }
