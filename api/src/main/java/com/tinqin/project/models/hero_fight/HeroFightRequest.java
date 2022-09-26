@@ -8,6 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
+@EqualsAndHashCode
 public class HeroFightRequest implements OperationInput {
     private Long firstHeroId;
     private Long secondHeroId;

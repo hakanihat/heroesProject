@@ -5,6 +5,8 @@ import lombok.*;
 @Setter(AccessLevel.PRIVATE)
 @Getter
 @Builder
+@ToString
+@EqualsAndHashCode
 public class FeignHeroAppearanceResponse {
     private String race;
     private String eyeColor;

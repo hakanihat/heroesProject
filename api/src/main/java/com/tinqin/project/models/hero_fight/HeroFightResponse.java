@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @EqualsAndHashCode
 @ToString
+
 public class HeroFightResponse implements OperationResult {
     private String winnerName;
     private String pointDifference;

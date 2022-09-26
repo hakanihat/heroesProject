@@ -1,13 +1,12 @@
 package com.tinqin.project.models.hero_biography.feign;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter(AccessLevel.PRIVATE)
 @Getter
 @Builder
+@ToString
+@EqualsAndHashCode
 public class FeignHeroBiographyResponse {
     private String fullName;
     private String alterEgos;

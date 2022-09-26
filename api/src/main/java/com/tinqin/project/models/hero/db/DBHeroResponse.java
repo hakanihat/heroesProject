@@ -1,13 +1,12 @@
 package com.tinqin.project.models.hero.db;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Builder
 @Getter
 @Setter(AccessLevel.PRIVATE)
+@EqualsAndHashCode
+@ToString
 public class DBHeroResponse {
     private Long heroId;
 

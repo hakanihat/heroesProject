@@ -5,7 +5,8 @@ import lombok.*;
 @Builder
 @Getter
 @Setter(AccessLevel.PRIVATE)
-
+@ToString
+@EqualsAndHashCode
 public class DBHeroAppearanceResponse {
     private Long heroId;
 
