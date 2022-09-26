@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class HeroMovieRequest implements OperationInput {
     private String heroId;
 }

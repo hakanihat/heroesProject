@@ -1,15 +1,14 @@
 package com.tinqin.project.models.hero;
 
 import com.tinqin.project.generics.OperationResult;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 @Builder
 @Setter(AccessLevel.PRIVATE)
 @Getter
+@EqualsAndHashCode
+@ToString
 public class HeroResponse implements OperationResult {
 private String heroName;
 private String intelligence;

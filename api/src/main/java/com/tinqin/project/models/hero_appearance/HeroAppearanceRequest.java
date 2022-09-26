@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class HeroAppearanceRequest implements OperationInput {
     private Long heroId;
 }
