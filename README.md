@@ -1,36 +1,34 @@
 # heroesProject
-
-1.Service
-
-Могат да се добавят герои/злодеи (id,name,Intalligence,Strength,Speed,durability,combat, abilities?)
-Moгат да се редактират всички атрибути 
-
-Заявка кой герой би спечелил битката:
-Героите ще имат статове: Intelligence,Strength,Speed,Durability
-Combat, които се взимат от  Marvel API -
-Победителят на битката е героят с повече точки ( точките за всеки герой се получават като съберем статовете им 
-и ги разделим на тяхната бройка)
- 
-Да имам таблица за суперсили, която да съдържа името на суперсила и типа 
-
-Принтвам всички герои, които са високи x см  
-
-Принтвам всички меле/елементал/range герои
-
-Принтвам  колко комикса има даден герой
+The prject includes 3 services:
 
 
-2. Service (heroClassification) с отделна база данни 
+1. Main service :
+Ability to add heroes/villains (id, name, Intelligence, Strength, Speed, Durability, Combat, Abilities?).
+Ability to edit all attributes.
 
-Принтвам кой герой каква връзка има с друг герой  
-Като в този сървис ще имам логиката за получаване на връзката между героите (getRelationship),
- редактиране на връзката (updateRealitonShip)
-И ще мога да историята на връзките между тях, където ще има данни защо примерно са станали врагове, как се се запознали, в кой комикс 
-се срещнали и т.н (getHistory)
+Battle Request:
+Heroes will have stats: Intelligence, Strength, Speed, Durability, Combat, which are retrieved from the Marvel API.
+The winner of the battle is the hero with the most points (points for each hero are calculated by summing their stats and dividing by the number of stats).
 
+Additional Features:
+A superpowers table containing the name of the superpower and its type.
+Print all heroes who are X cm tall.
+Print all melee/elemental/range heroes.
+Print how many comics a given hero appears in.
 
+2Hero Classification Service (heroClassification) – Separate Database
 
-3. service- служи като междинен клиент между другите два сървиса и всички външни апи-та, които ползвам
+This service contains logic for:
+-Printing what kind of relationship one hero has with another.
+-Retrieving relationships between heroes (getRelationship).
+-Editing relationships (updateRelationship).
+-Viewing the history of relationships (getHistory), which includes:
+  * Why they became enemies.
+  * How they met.
+  * In which comic they first appeared together, etc.
+
+3Middleware Service:
+-Acts as an intermediary client between the other two services and any external APIs used.
 
 
 https://github.com/hakanihat/heroesAPIProject
